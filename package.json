@@ -1,0 +1,35 @@
+{
+	"name": "myHub",
+	"main": "myHub",
+	"preferGlobal": false,
+	"version": "1.0.0",
+	"author": "Paul Freund",
+	"description": "Personal event collector with interface",
+	"contributors": [
+		{
+			"name": "Paul Freund",
+			"email": "freund.paul@lvl3.org"
+		}
+	],
+	"scripts": {
+		"start": "node ./myHub.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/PaulFreund/myHub"
+	},
+	"keywords": [
+		"myHub"
+	],
+    "dependencies": {
+	        "neojs": ">=1.2.1"
+        },
+	"optionalDependencies": {
+		"sqlite3": "2.1.5",
+		"node-stringprep": "0.1.5"	
+	},
+	"license": "MIT",
+	"engines": {
+		"node": ">=v0.6.0"
+	}
+}
