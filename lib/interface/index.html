@@ -2,6 +2,24 @@
 <html>
 <head>
     <title>What</title>
+    <script type="text/javascript" src="/nowjs/now.js"></script>
+
+    <script type="text/javascript">
+        now.ready(function()
+        {
+            window.now = now;
+
+            now.onNotification = function(type, data)
+            {
+                document.write('<br><p>'+type+ ': '+JSON.stringify(data)+'</p>');
+            };
+
+            now.storeGet('events.2013', function(data)
+            {
+                document.write('Startup data: '+JSON.stringify(data));
+            })
+        });
+    </script>
 </head>
 <body>
 
