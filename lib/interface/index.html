@@ -9,7 +9,7 @@
         {
             window.now = now;
 
-            now.onNotification = function(type, data)
+            now.onNewEvent = function(type, data)
             {
                 document.write('<br><p>'+type+ ': '+JSON.stringify(data)+'</p>');
             };
