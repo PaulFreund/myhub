@@ -2,7 +2,7 @@
 	"name": "myHub",
 	"main": "myHub",
 	"preferGlobal": false,
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": "Paul Freund",
 	"description": "Personal event collector with interface",
 	"contributors": [
@@ -22,7 +22,8 @@
 		"myHub"
 	],
     "dependencies": {
-	        "neojs": ">=1.2.1"
+            "rss": "0.0.4",
+	        "neojs": ">=1.2.5"
         },
 	"optionalDependencies": {
 		"sqlite3": "2.1.5",

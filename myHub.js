@@ -36,7 +36,7 @@ if( process.argv[2] !== undefined )
 
 // Load base
 var myHub = require('neojs');
-myHub.neo.enableDebug(true);
+myHub.neo.enableDebug(false);
 
 // Register additional templates
 myHub.neo.register(path.resolve(__dirname, 'lib'));
