@@ -1,10 +1,10 @@
 {
-	"name": "myHub",
-	"main": "myHub",
+	"name": "myhub",
+	"main": "myhub",
 	"preferGlobal": false,
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"author": "Paul Freund",
-	"description": "Personal event collector with interface",
+	"description": "Personal event collector with rss and web interface",
 	"contributors": [
 		{
 			"name": "Paul Freund",
@@ -12,14 +12,14 @@
 		}
 	],
 	"scripts": {
-		"start": "node ./myHub.js"
+		"start": "node ./myhub.js"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/PaulFreund/myHub"
+		"url": "https://github.com/PaulFreund/myhub"
 	},
 	"keywords": [
-		"myHub"
+		"myhub"
 	],
     "dependencies": {
             "rss": "0.0.4",

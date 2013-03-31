@@ -1,17 +1,17 @@
-# myHub #
+# myhub #
 
 Logs events from different sources and provides an interface to access them
 
 ## Installation ##
 
-You can install myHub with npm
+You can install myhub with npm
 
-    npm install myHub
+    npm install myhub
 
 Or by cloning the repository and  install the dependencies
 
-    git clone https://github.com/PaulFreund/myHub.git
-    cd myHub
+    git clone https://github.com/PaulFreund/myhub.git
+    cd myhub
     npm install
 
 Note: Three of the modules in the dependency chain need to be compiled, node-expat is required, node-stringprep and sqlite3 are optional. 
@@ -21,11 +21,11 @@ Note: Three of the modules in the dependency chain need to be compiled, node-exp
 
 ## Configuration ##
 
-To configure myHub just copy config.json.example to config.json and customize it to fit your needs.
+To configure myhub just copy config.json.example to config.json and customize it to fit your needs.
 
-    // Start myHub and use the config.json in the same folder
-    node myHub.js
+    // Start myhub and use the config.json in the same folder
+    node myhub.js
     
-    // Start myHub with the specified config file
-    node myHub.js customconfig.json
+    // Start myhub with the specified config file
+    node myhub.js customconfig.json
 
