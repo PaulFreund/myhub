@@ -1,0 +1,56 @@
+[
+    {
+        "id": "hub.input.irc",
+        "template": "irc",
+        "host": "example.com",
+        "name": "ExampleName",
+        "channel": "#exampleChannel"
+    },
+    {
+        "id": "hub.input.xmpp",
+        "template": "xmpp",
+        "host": "example.com",
+        "port": "5222",
+        "jid": "user@example.com",
+        "password": "userpassword",
+        "silent": true
+    },
+    {
+        "id": "hub.input.rss",
+        "template": "rss",
+        "interval": 60000,
+        "feeds": [
+            "http://xkcd.com/rss.xml"
+        ]
+    },
+    {
+        "id": "hub.input.mail",
+        "template": "mail",
+        "user": "user@example.com",
+        "password": "userpassword",
+        "host": "example.com",
+        "port": 993,
+        "secure": true,
+        "mailbox": "INBOX"
+    },
+    {
+        "id": "store",
+        "template": "store",
+        "uri": "sqlite://storage.db"
+    },
+    {
+        "id": "hub.output.simpleweb",
+        "template": "simpleweb",
+        "host": "0.0.0.0",
+        "port": 8888,
+        "htdocs": "lib/interface/",
+        "authentication": true,
+        "username": "exampleuser",
+        "password": "examplepassword"
+    },
+    {
+        "id": "hub",
+        "template": "hub",
+        "depends": ["store", "hub.output.simpleweb"]
+    }
+]
