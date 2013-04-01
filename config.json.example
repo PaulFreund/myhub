@@ -39,7 +39,7 @@
         "uri": "sqlite://storage.db"
     },
     {
-        "id": "hub.output.simpleweb",
+        "id": "simpleweb",
         "template": "simpleweb",
         "host": "0.0.0.0",
         "port": 8888,
@@ -51,6 +51,6 @@
     {
         "id": "hub",
         "template": "hub",
-        "depends": ["store", "hub.output.simpleweb"]
+        "depends": ["store", "simpleweb"]
     }
 ]

@@ -5,18 +5,34 @@
     <script type="text/javascript" src="/nowjs/now.js"></script>
 
     <script type="text/javascript">
+        function printEventSimple(event)
+        {
+            document.write('<br>['+event.date+']' + '['+event.input+']' + '['+event.type+']' + '['+event.source+']' + ' '+event.text+' (Starred: '+event.starred+') (Seen: '+event.seen+')');
+        }
+
         now.ready(function()
         {
             window.now = now;
 
-            now.onNewEvent = function(type, data)
-            {
-                document.write('<br><p>'+type+ ': '+JSON.stringify(data)+'</p>');
-            };
 
-            now.storeGet('events.2013', function(data)
+
+            now.getData('2013.04.01', { type: '!status' }, function(data)
             {
-                document.write('Startup data: '+JSON.stringify(data));
+                document.write('<h1>Startup data</h1>')
+                for( var item in data )
+                {
+                    if( !data.hasOwnProperty(item) ) { continue; }
+                    printEventSimple(data[item]);
+
+                }
+
+                now.onNewEvent = function(type, data)
+                {
+                    if( type === 'event' )
+                        printEventSimple(data);
+                };
+
+                document.write('<br><h1>New events</h1>')
             })
         });
     </script>
