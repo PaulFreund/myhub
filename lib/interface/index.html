@@ -16,7 +16,7 @@
 
 
 
-            now.getData('2013.04.01', { type: '!status' }, function(data)
+            now.getData('2013.04', { input: 'xmpp', type: '!status' }, function(data)
             {
                 document.write('<h1>Startup data</h1>')
                 for( var item in data )
