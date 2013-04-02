@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>myhub</title>
+    <script type="text/javascript" src="/nowjs/now.js"></script>
+
+    <script type="text/javascript">
+
+        function getTwoDigitDate(number)
+        {
+            return (('0' + number).slice(-2));
+        }
+
+	function prependLine(text)
+        {
+            var eleLine = document.createElement('span');
+            eleLine.innerHTML = text;
+
+            if (document.body.firstChild)
+            {
+                var eleBreak = document.createElement('hr');
+      	        document.body.insertBefore(eleBreak, document.body.firstChild);
+      	        document.body.insertBefore(eleLine, document.body.firstChild);
+            }
+            else 
+            {
+                document.body.appendChild(eleLine);
+            }
+        }
+
+        function printEvent(event)
+        {
+	    var eventDate = new Date(event.date);
+
+            var time = 
+                getTwoDigitDate(eventDate.getUTCHours()+2) + 
+                ':' +
+                getTwoDigitDate(eventDate.getUTCMinutes())
+            ;
+
+            prependLine( '[' + time + '] ' + event.text + ' (' + event.input + ')' );
+        }
+
+        now.ready(function()
+        {
+            window.now = now;
+
+            prependLine( 'Event stream started' );            
+
+            now.onNewEvent = function(type, data)
+            {
+                if( type === 'event' )
+                    printEvent(data);
+            };
+        });
+    </script>
+</head>
+<body></body>
+</html>
