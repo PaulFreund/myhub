@@ -87,7 +87,8 @@ Request a list of events from the backend, returns list of events from oldest to
 
             now.getData(
                 '2013.04.01',               // Timespan: 'all' or YYYY[.MM[.DD[.HH]]], every level after YYYY is optional
-                
+                                            // Or 'latest.year', 'latest.month', 'latest.date', 'latest.hour'
+
                 {                           // Passing an object is mandatory, adding filters to it is optional
                     input: 'xmpp',          // Only events where field 'input' has value 'xmpp'
                     type: '!status'         // Only events where field 'type' has not value 'status' ( ! = logical NOT )
@@ -105,6 +106,22 @@ Request a list of events from the backend, returns list of events from oldest to
                     }
                 }
             );
+
+#### now.getSettings ####
+
+Get settings for webinterface:
+
+    now.getSettings(function(settings)      // Get settings
+    {
+        // Do something with the settings
+    });
+
+#### now.setSettings ####
+
+Set settings for webinterface:
+
+    now.setSettings({...})                  // Set settings
+
 
 #### now.setStarred ####
     
