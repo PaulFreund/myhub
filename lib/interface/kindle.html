@@ -44,8 +44,7 @@
             function printEvent(event) 
             {
                 var eventDate = new Date(event.date);
-
-                var time = getTwoDigitDate(eventDate.getUTCHours() + 2) + ':' + getTwoDigitDate(eventDate.getUTCMinutes());
+                var time = getTwoDigitDate(eventDate.getHours()) + ':' + getTwoDigitDate(eventDate.getMinutes());
 
                 prependEvent(time, event.input, event.text);
             }

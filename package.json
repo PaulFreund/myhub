@@ -2,7 +2,7 @@
 	"name": "myhub",
 	"main": "myhub",
 	"preferGlobal": false,
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"author": "Paul Freund",
 	"description": "Personal event collector with rss and web interface",
 	"contributors": [
