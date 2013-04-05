@@ -49,8 +49,11 @@
 
             now.onNewEvent = function(type, data)
             {
-                if( type === 'event' )
-                    printEvent(data);
+                if( type === 'event' && data)
+		{
+		    if( data.type && data.type !== 'status' )
+                        printEvent(data);
+		}
             };
         });
     </script>
