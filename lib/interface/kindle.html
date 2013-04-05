@@ -2,8 +2,9 @@
 <html>
 <head>
     <title>myhub</title>
+    <link rel="stylesheet" type="text/css" href="kindle.css">
+    
     <script type="text/javascript" src="/nowjs/now.js"></script>
-
     <script type="text/javascript">
 
         function getTwoDigitDate(number)
@@ -11,26 +12,46 @@
             return (('0' + number).slice(-2));
         }
 
-	function prependLine(text)
+    	function prependEvent(time, input, text)
         {
-            var eleLine = document.createElement('span');
-            eleLine.innerHTML = text;
+            var elContainer = document.createElement('div');
+            elContainer.className = 'eventContainer';
+            
+                var elTimeContainer = document.createElement('div');
+                elTimeContainer.className = 'eventTimeContainer';             
+            
+                    var elTime = document.createElement('span');
+                    elTime.className = 'eventTime'
+                    elTime.innerHTML = time;
+                
+                elTimeContainer.appendChild(elTime);
+                
+                var elInnerContainer = document.createElement('div');
+                elInnerContainer.className = 'eventInnerContainer';            
+                
+                    var elInput = document.createElement('span');
+                    elInput.className = 'eventInput'
+                    elInput.innerHTML = input;
+                    
+                    var elText = document.createElement('h2');
+                    elText.className = 'eventText'
+                    elText.innerHTML = text;
+                    
+                elInnerContainer.appendChild(elText);
+                elInnerContainer.appendChild(elInput);
 
+            elContainer.appendChild(elTimeContainer);
+            elContainer.appendChild(elInnerContainer);
+    
             if (document.body.firstChild)
-            {
-                var eleBreak = document.createElement('hr');
-      	        document.body.insertBefore(eleBreak, document.body.firstChild);
-      	        document.body.insertBefore(eleLine, document.body.firstChild);
-            }
+      	        document.body.insertBefore(elContainer, document.body.firstChild);
             else 
-            {
-                document.body.appendChild(eleLine);
-            }
+                document.body.appendChild(elContainer);
         }
 
         function printEvent(event)
         {
-	    var eventDate = new Date(event.date);
+	        var eventDate = new Date(event.date);
 
             var time = 
                 getTwoDigitDate(eventDate.getUTCHours()+2) + 
@@ -38,25 +59,50 @@
                 getTwoDigitDate(eventDate.getUTCMinutes())
             ;
 
-            prependLine( '[' + time + '] ' + event.text + ' (' + event.input + ')' );
+            prependEvent(time, event.input, event.text);
         }
+
+        document.body = document.createElement('body');
+
+        printEvent( { input: 'error', text: ('This is test dataset nr 1 '), date: Date.now() } );
+        printEvent( { input: 'error', text: ('This is test dataset nr 2 '), date: Date.now() } );
+        printEvent( { input: 'error', text: ('This is test dataset nr 3 '), date: Date.now() } );
+        printEvent( { input: 'error', text: ('This is test dataset nr 4 '), date: Date.now() } );
+        printEvent( { input: 'error', text: ('This is test dataset nr 5 '), date: Date.now() } );
 
         now.ready(function()
         {
             window.now = now;
 
-            prependLine( 'Event stream started' );            
-
-            now.onNewEvent = function(type, data)
+            now.getData('latest.date', { type: 'message' }, function(data)
             {
-                if( type === 'event' && data)
-		{
-		    if( data.type && data.type !== 'status' )
-                        printEvent(data);
-		}
-            };
+                if( data && data.length > 0 )
+                {
+                    data.reverse();
+	            var length = data.length < 10 ? data.length : 10;
+                    for( var idxEvent = (length-1); idxEvent >= 0 ; idxEvent-- )
+                    {
+                        if( !data.hasOwnProperty(idxEvent) ) { continue; }
+                        printEvent( data[idxEvent] );
+                    } 
+                }
+
+                now.onNewEvent = function(type, data)
+                {
+                    if( type === 'event' && data)
+                    {
+                        if( data.type && data.input )
+                        {
+                            if( data.type === 'message' )
+                                printEvent( data );
+                            else if( data.type === 'error' )
+                                printEvent( { input: 'error', text: ('Error in module ' + data.input), date: Date.now() } );
+                        }
+                    }
+                };
+            });
         });
     </script>
 </head>
-<body></body>
+<body class="listContainer"></body
 </html>

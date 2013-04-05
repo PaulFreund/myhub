@@ -1,0 +1,56 @@
+.listContainer {
+    vertical-align: baseline;
+}
+
+.eventContainer {
+    margin:5px 50px 5px 5px;    
+    float:left;
+    display: block;
+    width: 100%;
+}
+
+.eventInnerContainer {
+    float: left;
+
+    padding-left:15px;
+    padding-right:5px;
+    padding-top:5px;
+    padding-bottom:5px;
+
+    background:rgba(255, 255, 255, 0.4);
+    position:relative;
+    font-weight:normal;
+    font-size:0.9em;
+    border: 1px solid rgba(255, 255, 255, 0);    
+    
+    border-left:3px solid black;
+}
+
+.eventTimeContainer {
+    float:left;
+    margin-right: 2px;
+    -webkit-transform:rotate(270deg);
+	-moz-transform:rotate(270deg);
+	-o-transform: rotate(270deg); 
+}
+
+.eventTime {
+    font-size:0.7em;  
+	white-space:nowrap;
+}
+
+.eventInput {
+    display:inline;
+    color:#aaa;
+    text-decoration:none;
+}
+
+.eventText {
+    display:inline;
+    font-weight:normal;
+    margin-right:5px;
+    cursor:pointer;
+    color:#333333;
+    padding-top:7px;
+    padding-bottom:7px;    
+}
