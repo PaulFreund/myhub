@@ -1,56 +1,57 @@
 .listContainer {
     vertical-align: baseline;
+    
 }
 
 .eventContainer {
-    margin:5px 50px 5px 5px;    
-    float:left;
     display: block;
-    width: 100%;
-}
-
-.eventInnerContainer {
-    float: left;
-
-    padding-left:15px;
-    padding-right:5px;
-    padding-top:5px;
-    padding-bottom:5px;
-
-    background:rgba(255, 255, 255, 0.4);
-    position:relative;
-    font-weight:normal;
-    font-size:0.9em;
-    border: 1px solid rgba(255, 255, 255, 0);    
+    color: #333333;
     
-    border-left:3px solid black;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 15px;
+    
+    font-weight: normal;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
 
-.eventTimeContainer {
+.eventContainerTime {
     float:left;
-    margin-right: 2px;
-    -webkit-transform:rotate(270deg);
-	-moz-transform:rotate(270deg);
-	-o-transform: rotate(270deg); 
+    margin-top: 16px;  
+    margin-left: -20px;
+    margin-right: -12px;
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -moz-transform-origin: top left; 
+    -o-transform: rotate(270deg);
+    -o-transform-origin: top left; 
+    -ms-transform: rotate(270deg);
+    -ms-transform-origin: top left; 
 }
 
 .eventTime {
-    font-size:0.7em;  
-	white-space:nowrap;
+    display:inline;    
+    font-size: 1.2em;
+
 }
 
-.eventInput {
-    display:inline;
-    color:#aaa;
-    text-decoration:none;
+.eventContainerText {
+    display: table;
+    height: 65px; 
+    
+    padding-top: 0px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+
+    border: 0px solid rgba(255, 255, 255, 0); 
+    
+    border-left-color: #333333;
+    border-left-width: 5px;
+    border-left-style: solid;
+    border-radius: 0px;
 }
 
 .eventText {
     display:inline;
-    font-weight:normal;
-    margin-right:5px;
-    cursor:pointer;
-    color:#333333;
-    padding-top:7px;
-    padding-bottom:7px;    
+    font-size: 1.5em;
 }
