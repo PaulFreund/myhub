@@ -19,7 +19,7 @@
                     var elTimeContainer = document.createElement('div');
                     elTimeContainer.className = 'eventContainerTime';
                     
-                        var elTime = document.createElement('span');
+                        var elTime = document.createElement('p');
                         elTime.className = 'eventTime'
                         elTime.innerHTML = time;                    
                     
@@ -28,7 +28,7 @@
                     var elTextContainer = document.createElement('div');
                     elTextContainer.className = 'eventContainerText';                
                         
-                        var elText = document.createElement('span');
+                        var elText = document.createElement('p');
                         elText.className = 'eventText'
                         elText.innerHTML = text;                        
                         
@@ -36,9 +36,13 @@
 
                 elContainer.appendChild(elTimeContainer);
                 elContainer.appendChild(elTextContainer);
+		
+                var listContainer = document.getElementById("listContainer");
 
-                if (document.body.firstChild) document.body.insertBefore(elContainer, document.body.firstChild);
-                else document.body.appendChild(elContainer);
+                if (listContainer.firstChild) 
+                    listContainer.insertBefore(elContainer, listContainer.firstChild);
+                else 
+                    listContainer.appendChild(elContainer);
             }
 
             function printEvent(event) 
@@ -76,7 +80,7 @@
                                 {
                                     printEvent(data);
                                 }
-                                else if (data.type === 'error') 
+                                else if (data.type === 'error' && data.input !== 'rss') 
                                 {
                                     printEvent({
                                         input: 'error',
@@ -92,5 +96,7 @@
         </script>
     </head>
     
-    <body class="listContainer"></body> 
+    <body>
+        <div id="listContainer"></div>
+    </body> 
 </html>
