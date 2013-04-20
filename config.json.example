@@ -49,8 +49,28 @@
         "password": "examplepassword"
     },
     {
+        "id": "smtp",
+        "template": "smtp",
+        "user": "user@example.com",
+        "password": "userpassword",
+        "host": "example.com",
+        "port": 445,
+        "secure": true
+    },
+    {
         "id": "hub",
         "template": "hub",
-        "depends": ["store", "simpleweb"]
+        "depends": ["store", "simpleweb", "smtp"],
+        "summaryAddress": "user@example.com",
+        "summary": [
+            {
+                "title": "Daily RSS",
+                "interval": "0 0 0 */1 * *",
+                "filter": {
+                    "input": "rss",
+                    "type": "!error"
+                }
+            },
+        ]
     }
 ]
