@@ -77,6 +77,22 @@ You can also add filters based on the event fields
     /feed/2013/04?input=xmpp&starred=true   // Events from xmpp that are starred ( & = logical AND )
     /feed/2013/04?input=xmpp&type=!status   // Events from xmpp that are not status ( ! = logical NOT )
 
+### E-Mail summary ###
+
+It is possible to receive new events in a defined interval as a summary via E-Mail. The interval is defined with the cron syntax and the summary definition contains filter rules like the ones defined below. Example from config.json.example:
+
+    "summaryAddress": "user@example.com",   // The address the summarys will be send to
+    "summary": [
+        {
+            "title": "Daily RSS",           // The title will be the subject of the E-Mail
+            "interval": "0 0 0 */1 * *",    // Example for every day ( first column is seconds )
+            "filter": {
+                "input": "rss",             // Only send rss events
+                "type": "!error"            // Don't include errors
+            }
+        },
+    ]
+
 ### Webinterface ###
 
 The webinterface resides in the directory lib/interface and is connected to the backend via nowjs. At the time of writing there is no finished UI, but a interface to the backend for communication.

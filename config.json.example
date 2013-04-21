@@ -13,7 +13,8 @@
         "port": "5222",
         "jid": "user@example.com",
         "password": "userpassword",
-        "silent": true
+        "silent": true,
+        "carbons": true
     },
     {
         "id": "hub.input.rss",
