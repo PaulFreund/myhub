@@ -86,6 +86,7 @@ It is possible to receive new events in a defined interval as a summary via E-Ma
         {
             "title": "Daily RSS",           // The title will be the subject of the E-Mail
             "interval": "0 0 0 */1 * *",    // Example for every day ( first column is seconds )
+            "links": true,                  // Send E-Mail as HTML and add event link if supplied
             "filter": {
                 "input": "rss",             // Only send rss events
                 "type": "!error"            // Don't include errors

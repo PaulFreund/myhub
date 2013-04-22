@@ -67,6 +67,7 @@
             {
                 "title": "Daily RSS",
                 "interval": "0 0 0 */1 * *",
+                "links": true,
                 "filter": {
                     "input": "rss",
                     "type": "!error"
