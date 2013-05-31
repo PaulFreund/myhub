@@ -57,13 +57,19 @@
             {
                 window.now = now;
 
-                now.getData('latest.month', { type: 'message' }, function(data) 
+                now.getData('latest.hour', { type: 'message' }, function(data) 
                 {
                     if (data && data.length > 0) 
                     {
+			// Create start event
+			var startEventDate = new Date(Date.now());
+			startEventDate.setMilliseconds(0);
+			startEventDate.setSeconds(0);
+			startEventDate.setMinutes(0);
+			printEvent({date: startEventDate, input: 'System', text: 'Event feed started' });
+
                         data.reverse();
-                        var length = data.length < 10 ? data.length : 10;
-                        for (var idxEvent = (length - 1); idxEvent >= 0; idxEvent--) 
+                        for (var idxEvent = (data.length - 1); idxEvent >= 0; idxEvent--) 
                         {
                             if (!data.hasOwnProperty(idxEvent))  { continue; }
                             printEvent(data[idxEvent]);
